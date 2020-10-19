@@ -7,15 +7,11 @@ image:
   feature: trees.jpg
 ---
 
-I am a research scientist at <a href="https://research.google.com" target="_blank">Google Research</a> 
-and part of the advisory board of <a href="http://www.vilynx.com/index.html" target="_blank">Vilynx</a>.
+I am a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
+and part of Technical Content Developer at <a href="https://www.bitproject.org/" target="_blank">Vilynx</a>.
 
 <br />
-Previously, I worked at <a href="http://www.vision.ee.ethz.ch/index.en.html" target="_blank">ETHZ</a>
-and <a href="http://www.disneyresearch.com/research-labs/disney-research-zurich/" target="_blank">Disney Research</a>,
-and I collaborated with <a href="http://www.cs.berkeley.edu/~malik/" target="_blank">Prof. J. Malik</a>'s vision group 
-and with the startup <a href="https://gestoos.com" target="_blank">Fezoo</a>.
+Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/~edemirca/hprl.html" target="_blank">ETHZ</a>
+and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank">VectraCom Engineering Labs</a>.
 
 <br />
-I am a mathematician, engineer, and PhD in computer vision by <a href="http://www.upc.edu" target="_blank">UPC Barcelonatech</a>.
-
