@@ -12,7 +12,7 @@ I grew up being fascinated by the technology around me. After I got my first ard
 
 ### Projects
 
-* [**https://github.com/ShayanRiyaz/Drowsy-Detector)<br>
+* [Drowsy Detector](https://github.com/ShayanRiyaz/Drowsy-Detector)<br>
 A drowsy detector for drivers on long trips. If the camera detects drowsiness it quickly alerts the user and suggests rest stops or gas stations opening nearby.
 
 
