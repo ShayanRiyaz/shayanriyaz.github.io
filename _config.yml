@@ -4,14 +4,14 @@ description:      Welcome to my site.
 url:              //shayanriyaz.github.io
 #http://localhost:5000
 #https://jponttuset.github.io
-disqus_shortname: jponttuset
+disqus_shortname: shayanriyaz
 
 # Owner/author information
 owner:
   name:           Shayan Riyaz
   avatar:         Shayan.jpg
   bio:            I'm from Karachi, Pakistan. Currently situated in Los Angeles, California
-  email:          jponttuset@gmail.com
+  email:          shayanariyaz@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter: shayanriyaz
   linkedin: shayanriyaz
