@@ -12,6 +12,6 @@ and part  of the technical content developer team at <a href="https://www.bitpro
 
 <br />
 Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/~edemirca/hprl.html" target="_blank"> CSULB</a>
-and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom in Karachi, Pakistan</a>.
+and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom</a> in Karachi, Pakistan.
 
 <br />
