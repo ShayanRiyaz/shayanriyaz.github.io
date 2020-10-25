@@ -15,6 +15,12 @@ I grew up being fascinated by the technology around me. After I got my first ard
 * [Drowsy Detector](https://github.com/ShayanRiyaz/Drowsy-Detector)<br>
 A drowsy detector for drivers on long trips. If the camera detects drowsiness it quickly alerts the user and suggests rest stops or gas stations opening nearby.
 
+### Workshops
+* [Introduction to Data Science](https://colab.research.google.com/github/ShayanRiyaz/My-Technical-Workshops/blob/master/Introductory-Data-Science-Workshop/BitUniversity-Workshop.ipynb)
+A simple easy to follow introduction to programming for data science/analysis. The topics covered are `Python`, DataFrames with `Pandas` and A tutorial using the **Trans-Atlantic Slave Trade** [dataset](https://www.slavevoyages.org/).
+
+* [Introduction to Robotics and Deep learning](https://colab.research.google.com/github/ShayanRiyaz/My-Technical-Workshops/blob/master/Deep-Learning-Robotics-Workshop/Deep-Learning-and-Robotics-Presentation.ipynb#scrollTo=xhpt8Y9Zz9TM)
+This workshop talks about implementing Deep learning on Inertial Measurment Unit (IMU) data in order to classify gestures and using the model in Unity 3D. Topics covered are data processing, Feeding Data to a Neural Network and evaluating models. The dataset used can be foun [here](https://github.com/ShayanRiyaz/My-Technical-Workshops/tree/master/Deep-Learning-Robotics-Workshop/data).
 
 ### Coming Soon
 
