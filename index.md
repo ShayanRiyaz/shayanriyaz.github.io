@@ -15,3 +15,6 @@ Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/
 and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom</a> in Karachi, Pakistan.
 
 <br />
+
+
+
