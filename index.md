@@ -1,7 +1,7 @@
 ---
 layout: home2
 title: Me in a Nutshell
-description: "Shayan Riyaz's website"
+description: "Anas's website"
 tags: [Jekyll, theme, responsive, blog, template]
 image:
   feature: trees.jpg

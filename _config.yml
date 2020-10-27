@@ -1,23 +1,22 @@
-title:            Shayan Riyaz's site
+title:            Anas Pasha's site
 description:      Welcome to my site.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              //shayanriyaz.github.io
+url:              //anaspasha.github.io
 #http://localhost:5000
-#https://jponttuset.github.io
-disqus_shortname: shayanriyaz
+disqus_shortname: anaspasha
 
 # Owner/author information
 owner:
-  name:           Shayan Riyaz
-  avatar:         Shayan.png
-  bio:            I'm from Karachi, Pakistan. Currently situated in Los Angeles, California
-  email:          shayanariyaz@gmail.com
+  name:           Anas Pasha
+  avatar:         Anas.png
+  bio:            I'm from Karachi, Pakistan. Currently in  in Dubai, United Arab Emirates.
+  email:          anaspasha19@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter: shayanriyaz
-  linkedin: shayan-riyaz
+  twitter: AK_pasha
+  linkedin: anaspasha1
   # google_scholar: VCBBx24AAAAJ
   # google_plus: 113718226018314522413
-  github: shayanriyaz
+  github: AnasKamalPasha
 # Analytics and webmaster tools stuff goes here
 # google_analytics: UA-52736040-1
 # google_verify:
@@ -37,7 +36,7 @@ links:
     url: /blog/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Los Angeles/US
+timezone:    Asia/Dubai
 future:      true
 #pygments:    true
 highlighter: rouge
