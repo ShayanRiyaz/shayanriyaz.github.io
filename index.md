@@ -16,8 +16,11 @@ image:
 My name is Shayan Riyaz and I am a Software Engineer by profession. Currently, I am a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
 and a part of the technical content developer team at <a href="https://www.bitproject.org/" target="_blank">Bit Project</a>.
 
-I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="https://www.bitproject.org/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics, used that knowledge to study a little bit of Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose at my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in 2019.<br />
+<br>
 
+I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="https://www.bitproject.org/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics, used that knowledge to study a little bit of Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose at my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in 2019.
+
+<br>
 
 Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/~edemirca/hprl.html" target="_blank"> CSULB</a>
 and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom</a> in Karachi, Pakistan.
