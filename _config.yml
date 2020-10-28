@@ -15,9 +15,10 @@ owner:
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter: shayanriyaz
   linkedin: shayan-riyaz
-  # google_scholar: VCBBx24AAAAJ
+  #google_scholar: VCBBx24AAAAJ
   # google_plus: 113718226018314522413
   github: shayanriyaz
+  shutterstock: shayanriyaz
 # Analytics and webmaster tools stuff goes here
 # google_analytics: UA-52736040-1
 # google_verify:
@@ -35,6 +36,8 @@ links:
     url: /code/
   - title: Blog
     url: /blog/
+  - title: Photography
+    url: /photography/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Los Angeles/US
