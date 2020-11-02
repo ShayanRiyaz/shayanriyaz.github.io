@@ -18,7 +18,7 @@ An Open-Source introductory data science curriculum for people with a Non-Techin
 * [Drowsy Detector](https://github.com/ShayanRiyaz/Drowsy-Detector)<br>
 A drowsy detector for drivers on long trips. If the camera detects drowsiness it quickly alerts the user and suggests rest stops or gas stations opening nearby.
 
-* [Rex Run](https://github.com/MLH-Fellowship/Rex-Run)
+* [Rex Run](https://github.com/MLH-Fellowship/Rex-Run)<br>
 A low budget endless runner made during a hackathon sprint.
 
 ### Workshops
