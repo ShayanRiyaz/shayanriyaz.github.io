@@ -18,20 +18,19 @@ and a part of the technical content developer team at <a href="https://www.bitpr
 
 <br>
 
-I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="https://www.bitproject.org/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics, used that knowledge to study a little bit of Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose at my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in 2019.
+I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="https://www.bitproject.org/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics and eventually gained enough intuition to study Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose as my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in December, 2019.
 
 <br>
 
-Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/~edemirca/hprl.html" target="_blank"> CSULB</a>
-and as a Engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom</a> in Karachi, Pakistan.
+Previously, I worked at as a research assistant at<a href="http://web.csulb.edu/~edemirca/hprl.html" target="_blank"> CSULB</a> and as an engineering intern at<a href="https://www.vectracom.com/" target="_blank"> VectraCom</a> in Karachi, Pakistan.
 
 ### Advice 
 For those who are not sure about which field they want to specialize in, for example in my case, I knew my work was related to practical sciences but I wasn't sure if it would be related to Physics, Mathematics and Engineering. Starting at a Community College provided me the opporunity to get a taste of each of these fields from an early point of my Bachelors.
 
 ## Pivoting towards Software Engineering
-While in my 3rd year of Electrical Engineering (Spring 2018), I was introduced to TensorFlow 1.0 and the concept of Deep Learning. Out of curiosity I dived into Machine Learning methods and their application inthe real world. One thing lead to another and fell in love with writing software. What is more important to me is consistently experimenting both with hardware and software to creat projects that incoroporate:
+While in my 3rd year of Electrical Engineering (Spring 2018), I was introduced to TensorFlow and the concept of Deep Learning. Out of curiosity I dived into Machine Learning methods and their application inthe real world. One thing lead to another and fell in love with writing software. What is more important to me is consistently experimenting both with hardware and software to creat projects that incoroporate:
 - Good software practices (backend communication).
-- Robust Data pipelines for the hardware design.
+- Robust data pipelines for the hardware design.
 
 ## About This Site
 This website is meant to be both a personal and professional journal of my projects, writings, my academic achievements and my areas of interests. The content on this website is my own and does not in any way express the opinions of anyone else other than me.
