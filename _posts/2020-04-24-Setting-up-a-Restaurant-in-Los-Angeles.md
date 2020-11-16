@@ -42,20 +42,97 @@ To achieve our target, we use the following sources and services:
 
 The first step is **scrapping** web data to get a list of all the neighborhoods in Los Angeles. Fortunately, I was able to find a listed Wikipedia page.
 
-<iframe src="https://medium.com/media/ff62b4bab2be4d920571025c172bc5a1" frameborder=0></iframe>
 
+```python
+url = requests.get('https://en.wikipedia.org/wiki/List_of_districts_and_neighbourhoods_of_Los_Angeles').text
+soup = BeautifulSoup(url,"html.parser")
+
+lis = []
+for li in soup.findAll('li'):
+    if li.find(href="/wiki/Portal:Los_Angeles"):
+        break
+    if li.find(href=re.compile("^/wiki/")):
+        lis.append(li)
+    if li.text=='Pico Robertson[34]': #Pico Robertson is the only item on the list that does not have a hyperlink reference
+        lis.append(li)
+
+        
+neigh = []
+for i in range(0,len(lis)):
+    neigh.append(lis[i].text.strip())
+    
+df = pd.DataFrame(neigh)
+df.columns = ['Neighbourhood']
+```
 ### **GeoLocation**
 
 Although, we have a list of the neighborhoods. They aren’t since they are simple strings with no real value. Now, we will match the Neighborhoods with their correct longitude and latitude signals using **GeoPy Nominatim Locator**
 
-<iframe src="https://medium.com/media/f0f6be4edb768f4c1925606eba2bacd8" frameborder=0></iframe>
+```python
+# define the data frame columns
+column_names = ['Neighbourhood', 'Latitude', 'Longitude'] 
+
+# instantiate the data frame
+nhoods = pd.DataFrame(columns=column_names)
+
+geolocator = Nominatim(user_agent="la_explorer",timeout=5)
+for i in range(0,len(df)):
+    
+    address = df.Neighbourhood[i]+', Los Angeles'
+    location = geolocator.geocode(address)
+    if location == None:
+        latitude = 0
+        longitude = 0
+    else:
+        latitude = location.latitude
+        longitude = location.longitude
+
+    nhoods = nhoods.append({'Neighbourhood': df.Neighbourhood[i],
+                                              'Latitude': latitude,
+                                              'Longitude': longitude}, ignore_index=True)
+    
+    
+    
+    
+nhoods['Latitude']=nhoods['Latitude'].astype(float)
+nhoods['Longitude']=nhoods['Longitude'].astype(float)
+
+nhoods=nhoods[(nhoods.Latitude>33.5) & (nhoods.Latitude<34.4) & (nhoods.Longitude<-118)] 
+nhoods.reset_index(inplace=True,drop=True)
+```
+
 
 If we display the data frame **nhoods**, we get this:
 
 ![Neighborhoods with Latitude and Longitude](https://cdn-images-1.medium.com/max/2000/1*ANBgFHMkuXym2yGOLFeHZQ.png)*Neighborhoods with Latitude and Longitude*
 
-<iframe src="https://medium.com/media/453f768c663792736f0eccce148948da" frameborder=0></iframe>
 
+```python
+address = 'Los Angeles, USA'
+
+geolocator = Nominatim(user_agent="la_explorer")
+location = geolocator.geocode(address)
+latitude = location.latitude
+longitude = location.longitude
+print('The geograpical coordinates of {} are {}, {}.'.format(address,latitude, longitude))
+
+# create map of LA using latitude and longitude values
+map_la = folium.Map(location=[latitude, longitude], zoom_start=10)
+
+# add markers to map
+for lat, lng, neighbourhood in zip(nhoods['Latitude'], nhoods['Longitude'], nhoods['Neighbourhood']):
+    label = '{}'.format(neighbourhood)
+    label = folium.Popup(label, parse_html=True)
+    folium.CircleMarker(
+        [lat, lng],
+        radius=3,
+        popup=label,
+        color='red',
+        fill=True,
+        fill_color='#3199cc',
+        fill_opacity=0.3,
+        parse_html=False).add_to(map_la)  
+```
 ![Neighborhoods mapped using Folium](https://cdn-images-1.medium.com/max/2000/1*GJBo2cSY3JQKGWPIgcD-FQ.png)*Neighborhoods mapped using Folium*
 
 ### Using the Foursquare API
@@ -66,8 +143,16 @@ before we use the API, let's give a bit into detail about what the API exactly d
 
 In order to use the Places API provided by the company we first have to create a project over here. This gives us the **Client ID**, **Client Secret **(These should not be shared).
 
-<iframe src="https://medium.com/media/f447be275e5176cc24472422b340f02d" frameborder=0></iframe>
 
+```python
+CLIENT_ID = '' # Foursquare ID
+CLIENT_SECRET = '' # Foursquare Secret
+VERSION = '' # Foursquare API version
+
+print('Your credentails:')
+print('CLIENT_ID: ' + CLIENT_ID)
+print('CLIENT_SECRET: ' + CLIENT_SECRET)
+```
 ### K-Means Clustering
 
 The first step we’ll take is finding the most optimum value for K using the **Silhouette Coefficient** Method.
@@ -76,7 +161,40 @@ A high Silhouette Coefficient score relates to a model with better-defined clust
 
 A higher Silhouette Coefficient indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters.
 
-<iframe src="https://medium.com/media/c50c3224d87d9a99c392c73bbfcf9732" frameborder=0></iframe>
+```python
+from sklearn.metrics import silhouette_score
+
+la_grouped_clustering = la_grouped.drop('Neighbourhood', 1)
+
+for n_cluster in range(2, 12):
+    kmeans = KMeans(n_clusters=n_cluster).fit(la_grouped_clustering)
+    label = kmeans.labels_
+    sil_coeff = silhouette_score(la_grouped_clustering, label, metric='euclidean')
+    print("For n_clusters={}, The Silhouette Coefficient is {}".format(n_cluster, sil_coeff))
+    
+    
+    # set number of clusters
+kclusters = 4
+
+la_grouped_clustering = la_grouped.drop('Neighbourhood', 1)
+
+# run k-means clustering
+kmeans = KMeans(n_clusters=kclusters, random_state=0).fit(la_grouped_clustering)
+
+# check cluster labels generated for each row in the data frame
+kmeans.labels_
+
+# add clustering labels
+Neighbourhoods_venues_sorted.insert(0, 'Cluster Label', kmeans.labels_.astype(int))
+# Neighbourhoods_venues_sorted['Cluster Label']=kmeans.labels_.astype(int)
+la_merged = nhoods
+
+# merge la_grouped with nhoods to add latitude/longitude for each Neighbourhood
+la_merged = la_merged.join(Neighbourhoods_venues_sorted.set_index('Neighbourhood'), on='Neighbourhood')
+la_merged.dropna(inplace=True)
+la_merged['Cluster Label'] = la_merged['Cluster Label'].astype(int)
+la_merged.head() 
+```
 
 ![Choosing the best cluster k = 4](https://cdn-images-1.medium.com/max/2000/1*-i3an-xIuF6WRvw4RlXhrA.png)*Choosing the best cluster k = 4*
 
@@ -86,18 +204,112 @@ As we can see the highest Silhouette Coefficient is when the number of clusters 
 
 ![](https://cdn-images-1.medium.com/max/2000/1*_3Y6xwVJQqJEs0cRFZYGkQ.png)
 
-<iframe src="https://medium.com/media/6a196ea9625e73123d566d4d041db56b" frameborder=0></iframe>
+```python
+import matplotlib.colors as colors
+from matplotlib.colors import rgb2hex
+# create map
+map_clusters = folium.Map(location=[latitude, longitude], zoom_start=10)
 
+# set color scheme for the clusters
+x = np.arange(kclusters)
+ys = [i + x + (i*x)**2 for i in range(kclusters)]
+colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
+rainbow = [colors.rgb2hex(i) for i in colors_array]
+rainbow[2]='#006000'
+rainbow[1]='#006ff6'
+# add markers to the map
+markers_colors = []
+for lat, lon, poi, cluster in zip(la_merged['Latitude'], la_merged['Longitude'], la_merged['Neighbourhood'], la_merged['Cluster Label']):
+    label = folium.Popup(str(poi) + ' Cluster ' + str(cluster), parse_html=True)
+    folium.CircleMarker(
+        [lat, lon],
+        radius=5,
+        popup=label,
+        color=rainbow[cluster-2],
+        fill=True,
+        fill_color=rainbow[cluster-2],
+        fill_opacity=0.7).add_to(map_clusters)
+legend_html =   '''
+                <div style="position: fixed; 
+                            bottom: 100px; left: 50px; width: 120px; height: 100px; 
+                            border:3px solid black; z-index:9999; font-size:13px;
+                            ">&nbsp; Green - Cluster 0 <br>
+                              &nbsp; Red - Cluster 1 <br>
+                              &nbsp; Purple - Cluster 2 <br>
+                              &nbsp; Blue - Cluster 3 </i>
+                </div>
+                ''' 
+
+map_clusters.get_root().html.add_child(folium.Element(legend_html))
+map_clusters
+```
 ![Mapping the clusters (K = 4)](https://cdn-images-1.medium.com/max/2000/1*2GAAm5yVc3siPVC33Ix1Fw.png)*Mapping the clusters (K = 4)*
 
 ### Visualizing the top 10 venues
 
 Next, we will write a function to generate a horizontal bar plot showing the top 10 venues for each cluster, highlighting the food venues:
 
-<iframe src="https://medium.com/media/175e2087fff71a537bc6388e221d6907" frameborder=0></iframe>
 
-<iframe src="https://medium.com/media/941fe732af94a137aa923a0676f04b0e" frameborder=0></iframe>
+```python
+def generate_plot(clus,i):
+    
+    plt.style.use('default')
 
+    tags=['Restaurant','Coffee','Food','Pizza','Sandwich']
+    colors = []
+    for value in clus.index: 
+        if  any(t in value for t in tags):
+            colors.append('#0000FF')
+        else:
+            colors.append('#FF0000')
+
+    ax=clus.plot(kind='barh', figsize=(16,8), color=colors, alpha=0.7)
+
+    plt.title('(in % of all venues)\n')
+    ax.title.set_fontsize(14)
+    plt.suptitle('Ten Most Prevalent Venues of Cluster {}'.format(i), fontsize=16)
+
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+
+    plt.xticks([])
+    ax.tick_params(axis ='both', which ='both', length = 0)
+    labels = [(item.get_text()+'  ') for item in ax.get_yticklabels()]
+    ax.set_yticklabels(labels)
+
+    for label in (ax.get_yticklabels()):
+        label.set_fontsize(12)
+
+    for index, value in enumerate(clus): 
+        label = "%.1f " % round(value*100,1) + "%"
+        # place text at the end of bar (adding 0.001 to x, and 0.1 from y to make it appear just after the bar)
+        plt.annotate(label, xy=(value + 0.001, index - 0.1), color='black',fontsize=12)
+
+    legend_elements = [Patch(facecolor='#0000FF', edgecolor='#0000FF',
+                             label='Food Venues',alpha=0.7),
+                       Patch(facecolor='#FF0000', edgecolor='#FF0000',
+                             label='Others',alpha=0.7)]
+
+    ax.legend(handles=legend_elements, loc='best',fontsize=12)
+```
+```python
+clus1neigh=la_merged.loc[la_merged['Cluster Label'] == 1, la_merged.columns[0]].values.tolist()
+
+
+filtered_nhoods=nhoods.copy()
+
+for i in range(0,len(filtered_nhoods)):
+
+    if filtered_nhoods.iloc[i,0] not in clus1neigh:
+        filtered_nhoods.iloc[i,0]='TO DROP'
+        
+filtered_nhoods=filtered_nhoods[filtered_nhoods.Neighbourhood!='TO DROP']
+filtered_nhoods.reset_index(drop=True,inplace=True)
+
+filtered_nhoods
+```
 ### Cluster 1
 
 I’ve added more details about why I chose Cluster 1 compared to the other 3. One of the main reasons for doing so is because it was a safer option than choosing a cluster with a significant % of restaurants or one with barely any.
@@ -108,21 +320,104 @@ Next well will again use the Foursquare API to locate existing Greek Restaurants
 
 In order to find the correct code for the venue refer to this [link](https://developer.foursquare.com/docs/build-with-foursquare/categories)
 
-<iframe src="https://medium.com/media/8751c73c2ee030436caa9148f37693ce" frameborder=0></iframe>
 
+```python
+def get_neighbourhood_Greek_Restaurant(url1):
+    
+    results = requests.get(url1).json()
+
+    # assign relevant part of JSON to venues
+    venues = results['response']['venues']
+
+    # tranform venues into a data frame
+    dataframe = json_normalize(venues)
+
+    #print('DataFrame',dataframe)
+    # keep only columns that include venue name, and anything that is associated with location
+    filtered_columns = ['name', 'categories'] + [col for col in dataframe.columns if col.startswith('location.')] + ['id']
+    #print('Filtered columns',filtered_columns)
+    dataframe_filtered = dataframe.loc[:, filtered_columns]
+
+    # filter the category for each row
+    dataframe_filtered['categories'] = dataframe_filtered.apply(get_category_type, axis=1)
+
+    # clean column names by keeping only last term
+    dataframe_filtered.columns = [column.split('.')[-1] for column in dataframe_filtered.columns]
+    
+    display(dataframe_filtered.loc[:,['name','categories','distance','lat','lng']])
+    
+    
+category='4bf58dd8d48988d10e941735'#The category for Greek restaurants obtained from https://developer.foursquare.com/docs/resources/categories
+radius = 700
+LIMIT=30
+
+for n in range(0,len(filtered_nhoods)):
+    url = 'http://api.foursquare.com/v2/venues/search?client_id={}&client_secret={}&ll={},{}&v={}&categoryId={}&radius={}&limit={}'.format(
+    CLIENT_ID, 
+    CLIENT_SECRET, 
+    filtered_nhoods.iloc[n,1], 
+    filtered_nhoods.iloc[n,2], 
+    VERSION, 
+    category, 
+    radius, 
+    LIMIT)
+    print('------------------------------------------------- '+ filtered_nhoods.iloc[n,0] + ' -------------------------------------------------')
+    get_neighbourhood_Greek_Restaurant(url)
+    print('\n\n')
+```
 ![Existing Restaurants in Cluster 1](https://cdn-images-1.medium.com/max/2000/1*db3wmU65osNEn8gySk2zxg.png)*Existing Restaurants in Cluster 1*
 
 In this case, We will choose to go with a location that has more Greek Restaurants. This is because the data shows that the population in Harvard Heights is more accustomed to Greek Restaurants and is, therefore, a less risky location.
 
 In terms of choosing the Neighborhood closest to the city center, we can observe that there is not much difference in distance for both Neighborhoods.
 
-<iframe src="https://medium.com/media/4c81c16cd40102bf04fa129c805b321e" frameborder=0></iframe>
+```python
+filter2_nhoods = filter2_nhoods.reindex( columns = filter2_nhoods.columns.tolist() + ['Distance from LA center (in km)'])  #this way to avoid warnings
 
+from math import radians, sin, cos, acos
+
+slat = radians(34.0536909) #LA center Latitude obtained earlier
+slon = radians(-118.2427666) #LA center Longitude obtained earlier
+
+for n in range(0,len(filter2_nhoods)):
+    
+    elat = radians(filter2_nhoods.iloc[n,1])
+    elon = radians(filter2_nhoods.iloc[n,2])
+
+    dist = 6371.01 * acos(sin(slat)*sin(elat) + cos(slat)*cos(elat)*cos(slon - elon))
+    filter2_nhoods.loc[n,'Distance from LA center (in km)']=dist
+    
+    
+filter2_nhoods.sort_values(by='Distance from LA center (in km)',inplace=True)
+filter2_nhoods.reset_index(drop=True,inplace=True)
+filter2_nhoods
+
+```
 ![](https://cdn-images-1.medium.com/max/2000/1*9RLEkpJPFYNiaURfa0ZcGA.png)
 
 The last check is to compare the rent prices. Unfortunately, the dataset available does not contain rent rates for Korea Town.
 
-<iframe src="https://medium.com/media/9c4c5c8941e49762a861b3b23510cfa3" frameborder=0></iframe>
+```python
+url = requests.get('https://www.rentcafe.com/average-rent-market-trends/us/ca/los-angeles/').text
+soup = BeautifulSoup(url,"html.parser")
+
+table = soup.find('table',id="MarketTrendsAverageRentTable")
+pr = table.find_all('td')
+nh = table.find_all('th')
+
+price = []
+neighbourhood = []
+
+for i in range(0, len(pr)):
+    price.append(pr[i].text.strip())
+    neighbourhood.append(nh[i+2].text.strip())
+        
+df_rent = pd.DataFrame(data=[neighbourhood, price]).transpose()
+df_rent.columns = ['Neighbourhood', nh[1].text]
+
+
+df_rent[(df_rent['Neighbourhood']=='Harvard Heights') | (df_rent['Neighbourhood']=='Korea Town')]
+```
 
 ![](https://cdn-images-1.medium.com/max/2000/1*ulMgxZ2Y0XE9A4rn6S6PbA.png)
 
