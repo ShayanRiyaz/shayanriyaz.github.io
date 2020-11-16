@@ -54,7 +54,7 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 
 - **A** will select a port of its own, for example, **8080** and send a packet (get request) to **192.168.2.1:80**
 
-[A communicates with With Router](https://www.notion.so/f8dda87e76e442b4856bdec5f5c742d1)
+![A communicates with With Router](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/1_A-com-B.png)
 
 - Can it actually communicated with **192.168.2.1:80?**
 - Next, **NAT** does a subnet masking. It checks if **B** is in the same subnet as **A** (On the back does an XOR)
@@ -68,21 +68,21 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 
 This Next becomes
 
-[Router Communicates with B](https://www.notion.so/7448bb03aa5948e5ab35c109aa8e6e4b)
+![Router Communicates with B](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/2_rout-to-B.png)
 
 The router selects a random port (in our case **3333**)
 
 But before it does that it creates a NAT Table.
 
-[NAT Table](https://www.notion.so/4fa9537c2c3749689e0e267e6fb4f89d)
+![NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/3_NAT-table.png)
 
-[B Receives from Router](https://www.notion.so/49db18f08e37494cb757fbd61cbb273b)
+![B Receives from Router](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/4_B-rec-router.png)
 
 - Next B will send the message back to the router
 - The router will check who is **5.5.5.5:3333**?
 - The router will look at the **NAT table** where it will find the ip address connected to **5.5.5.5:3333** (which is **A**'s address) and send the message to it.
 
-    [ NAT Table](https://www.notion.so/6936ed1fad2c48f28d060825d885fadd)
+    ![ NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/5_NAT-table.png)
 
 ## NAT Translation Methods
 
@@ -95,7 +95,7 @@ But before it does that it creates a NAT Table.
 
 - Packets to **External IP:port** on the router always maps to the I**nternal IP:port** without exceptions
 
-[NAT Table](https://www.notion.so/17c091421ae34f94bbed88182252b15d)
+![NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/6_NAT-Table.png)
 
 If someone **(B)** sent a packet to a router and if the router is configured to a 1 to 1 NAT it doesn't check where the packet is coming from and it will automatically forward it to the Internal IP (**A)/**
 
@@ -106,7 +106,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 - Packets to external IP: post on the router always maps to internal IP: port as long as source address from packed matched the table (regardless of part)
 - The communication is allowed if we have communicated with this host before
 
-[ NAT Table](https://www.notion.so/84ef106c40cf421f9c44070a4c484963)
+![ NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/7-NAT-table.png)
 
 ![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%203.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/3_AddrRestrict_NAT.png)
 
@@ -117,7 +117,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 - Packets to external IP:port on the router always maps to the internal IP: port as long as the source address and port from packet matches table
 - Allow if there has been communication with this host:port before
 
-[NAT Table](https://www.notion.so/b284f0917471433b84255b3ebcd5319a)
+![NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/8-NAT-table.png)
 
 ![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%204.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/4_PortRestrictedNat.png)
 
@@ -127,7 +127,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 - Packets to external IP:port on the router always map to internal IP:port as long as source address and port from packet matches the table
 - Only Allow if the full pair match
 
-[NAT Table](https://www.notion.so/e872edc792ea4a7fa3f313e891e15e0f)
+![NAT Table](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/NAT-TABLES/9-NAT-Table.png)
 
 ![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%205.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/5_SymmetricNAT.png)
 
