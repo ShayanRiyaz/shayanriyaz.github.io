@@ -5,9 +5,6 @@ description: "A brief introduction to WebRTC fundamentals"
 comments: true
 ---
 
-
-# How Does Web RTC Really Work?
-
 *This is part 1 of a 3 part WebRTC series. In the 2nd, I will dive into a little bit more detail on how to set up our STUN/TURN server and how the process of signaling works. Lastly, in the 3rd I will execute a basic GoLang implementation of WebRTC.*
 
 Over the past few days, I have been studying WebRTC and how the whole mechanism works, Although I am nowhere near mastering how the architecture works, I've been able to simplify things down a little bit and understand the fundamental concepts.
