@@ -28,15 +28,15 @@ Recent Demographic surveys have shown that the Los Angeles Metropolitan area is.
 
 To achieve our target, we use the following sources and services:
 
-* **BeautifulSoup: **This Wikipedia page will be the source of identifying all the neighborhoods that exist in the Los Angeles area: List of Districts and Neighborhoods of Los Angeles[1]
+* **BeautifulSoup:** This Wikipedia page will be the source of identifying all the neighborhoods that exist in the Los Angeles area: List of Districts and Neighborhoods of Los Angeles[1]
 
-* **GeoPy: **We will be using GeoPy to map our neighborhoods. This API allows us to locate the precise coordinates of a location using numerous data sources.
+* **GeoPy:** We will be using GeoPy to map our neighborhoods. This API allows us to locate the precise coordinates of a location using numerous data sources.
 
-* **Folium: **To map our coordinates on a map that can be visualized, we will be using the folium API.
+* **Folium:** To map our coordinates on a map that can be visualized, we will be using the folium API.
 
-* **Foursquare API: **The Foursquare API [2] gives us access to the most popular locations in a given area. Using the above-mentioned services and the API we can pin-point the restaurant demographics in the Neighborhood.
+* **Foursquare API:** The Foursquare API [2] gives us access to the most popular locations in a given area. Using the above-mentioned services and the API we can pin-point the restaurant demographics in the Neighborhood.
 
-* **Rent Data: **Los Angeles Rent Prices[3]
+* **Rent Data:** Los Angeles Rent Prices[3]
 
 ## Methodology
 
