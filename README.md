@@ -2,6 +2,9 @@
 
 This site is based on the **[Minimal Mistakes](http://mmistakes.github.io/minimal-mistakes)** theme, a two-column responsive Jekyll theme perfect for powering your GitHub hosted blog.
 
+## Gitpod
+
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ShayanRiyaz/shayanriyaz.github.io)
 
 ## License
 
