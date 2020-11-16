@@ -9,6 +9,7 @@ comments: true
 
 Over the past few days, I have been studying WebRTC and how the whole mechanism works, Although I am nowhere near mastering how the architecture works, I've been able to simplify things down a little bit and understand the fundamental concepts.
 
+
 - Stands For Web Real-Time Communication
 - Find a peer to peer path to exchange video and audio in an efficient and low latency manner
 - Standardized API
