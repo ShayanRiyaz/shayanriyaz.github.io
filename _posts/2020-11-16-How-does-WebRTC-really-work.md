@@ -27,9 +27,9 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 - A connects to B via the most optimal path.
 - A & B also exchanges their supported media and security.
 
-![How-does-WebRTC-really-work/Untitled.png](https://github.com/ShayanRiyaz/shayanriyaz.github.io/blob/c7d19575ac67c324f9e984271a4f7e6d3e49e944/images/How-does-WebRTC-really-work/1_overview.png
+![How-does-WebRTC-really-work/Untitled.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/1_overview_2.png)
 
-![How-does-WebRTC-really-work/Untitled%201.png](images/How-does-WebRTC-really-work/Untitled%201.png)
+![How-does-WebRTC-really-work/Untitled%201.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/1_overview.png)
 
 *They will connect directly along the shortest optimal path.*
 
@@ -99,7 +99,7 @@ But before it does that it creates a NAT Table.
 
 If someone **(B)** sent a packet to a router and if the router is configured to a 1 to 1 NAT it doesn't check where the packet is coming from and it will automatically forward it to the Internal IP (**A)/**
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%202.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%202.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%202.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/2_one_to_one_NAT.png)
 
 ### Address Restricted NAT
 
@@ -108,7 +108,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 
 [ NAT Table](https://www.notion.so/84ef106c40cf421f9c44070a4c484963)
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%203.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%203.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%203.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/3_AddrRestrict_NAT.png)
 
 - As long as we've sent some packet before (could be any for e.g. UDP, TCP, DNS request, or TelNet Request) and it is in our NAT table.
 
@@ -119,7 +119,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 
 [NAT Table](https://www.notion.so/b284f0917471433b84255b3ebcd5319a)
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%204.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%204.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%204.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/4_PortRestrictedNat.png)
 
 ### Symmetric NAT (Most restricted one)
 
@@ -129,7 +129,7 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 
 [NAT Table](https://www.notion.so/e872edc792ea4a7fa3f313e891e15e0f)
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%205.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%205.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%205.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/5_SymmetricNAT.png)
 
 Symmetric NAT does not work with **WebRTC.** This is because WebRTC using a **STUN** server. When we communicate with the STUN server it gives us the IP address. 
 
@@ -146,15 +146,10 @@ Symmetric NAT does not work with **WebRTC.** This is because WebRTC using a **ST
 - STUN SERVER port 3478, 5439 for Transport Layer Security (TLS)
 - Cheap to Maintain (Can run on a Docker Server)
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%206.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%206.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%206.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/6_STUN.png)
 
 In case of Address/Port restricted Nat you have to send a packet prior to the communication to make sure that they have their addresses saved before they communicate.
 
-[STUN Request](https://www.notion.so/STUN-Request-89e7d683d0c548eeb58f4e13f22d951a)
-
-[STUN When it works](https://www.notion.so/STUN-When-it-works-fa20fcc8e11544c38c64d98ca45080be)
-
-[STUN when it doesn't work](https://www.notion.so/STUN-when-it-doesn-t-work-96ec23b6879e4019a1914f01d4ce1c94)
 
 ## TURN
 
@@ -164,7 +159,7 @@ In case of Address/Port restricted Nat you have to send a packet prior to the co
 - TURN default server port 3478,5349 for TLS
 - Expensive to maintain and run
 
-![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%207.png](How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%207.png)
+![How%20Does%20Web%20RTC%20Really%20Work%209bad7955a3f44d2e8f1fe7e8b317d6f2/Untitled%207.png](https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/How-does-WebRTC-really-work/7_TURN.png)
 
 ## ICE
 
