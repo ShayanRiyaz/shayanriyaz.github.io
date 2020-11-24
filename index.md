@@ -12,6 +12,13 @@ image:
 </center>
 <center><i>Shayan in New York City</i></center>
 
+# <font color="#A149"> Career Alert!</font>
+Hey everyone, I'm currently looking for full-time positions in the United States of America. My primary skills 
+are related to Data Science and Software Engineering and I am open to roles related to these areas. I am a motivated and professional engineer who is very career and community oriented.
+
+*If you think my skillset fits your company or any companies that you are aware of, it would be great if you reach out to me on my email [shayanariyaz@gmail.com](shayanariyaz@gmail.com). You can also view my **resume** [here](https://drive.google.com/file/d/17Ks51alKPLJsk9gcRumPsWJ5LXH7_TH6/view?usp=sharing).*
+
+
 ## About Me
 My name is Shayan Riyaz and I am a Software Engineer by profession. Currently, I am a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
 and a part of the technical content developer team at <a href="https://www.bitproject.org/" target="_blank">Bit Project</a>.
