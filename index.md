@@ -13,10 +13,10 @@ image:
 <center><i>Shayan in New York City</i></center>
 
 # <font color="#A149"> Career Alert!</font>
-Hey everyone, I'm currently looking for full-time positions in the United States of America. My primary skills 
-are related to Data Science and Software Engineering and I am open to roles related to these areas. I am a motivated and professional engineer who is very career and community oriented.
+Hey everyone! I'm currently looking for full-time positions in the US. My primary skills 
+are related to Data Science, Software Engineering, and product engineering. I am open to any positions related to these field. I am a motivated and professional engineer who is very career and community oriented.
 
-*If you think my skillset fits your company or any companies that you are aware of, it would be great if you reach out to me on my email [shayanariyaz@gmail.com](shayanariyaz@gmail.com). You can also view my **resume** [here](https://drive.google.com/file/d/17Ks51alKPLJsk9gcRumPsWJ5LXH7_TH6/view?usp=sharing).*
+*If you think my skillset and vision matches your company or any companies that you are aware of, it would be great if you reach out to me on my email [shayanariyaz@gmail.com](shayanariyaz@gmail.com). You can also view my **resume** [here](https://drive.google.com/file/d/17Ks51alKPLJsk9gcRumPsWJ5LXH7_TH6/view?usp=sharing)*.
 
 
 ## About Me

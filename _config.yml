@@ -38,7 +38,9 @@ links:
     url: /blog/
   - title: Photography
     url: /photography/
-
+  - title: Certifications
+    url: /certifications/
+    
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Los Angeles/US
 future:      true
