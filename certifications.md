@@ -8,7 +8,7 @@ comments: false
 ---
 
 ## IBM Data Science 
-- ***Date Achieved*** : 30th September 2020
+- ***Date Achieved*** : 25th April 2020
 - ***Topic*** : Deep Learning 
 - ***Link*** : [Here](https://coursera.org/share/229c01ca9dc2bacfd5e7800d6c690e55)
 
@@ -17,7 +17,7 @@ comments: false
 </p> 
 
 ## Tensorflow Developer Certificate
-- ***Date Achieved*** : 25th April 2020
+- ***Date Achieved*** : 30th September 2020
 - ***Topic*** : Deep Learning 
 - ***Link*** : [Here](https://coursera.org/share/9491b011c48eea41e18d332fc3483f67)
 

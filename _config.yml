@@ -40,6 +40,8 @@ links:
     url: /photography/
   - title: Certifications
     url: /certifications/
+  - title: Contact
+    url: /contactme/
     
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Los Angeles/US
