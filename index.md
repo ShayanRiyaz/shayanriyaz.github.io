@@ -12,20 +12,14 @@ image:
 </center>
 <center><i>Shayan in New York City</i></center>
 
-# <font color="#A149"> Career Alert!</font>
-Hey everyone! I'm currently looking for full-time positions in the US. My primary skills 
-are related to Data Science, Software Engineering, and Product Engineering. I am open to any positions in these fields. I am a motivated and professional engineer who is very career and community oriented.
-
-*If you think my skillset and vision matches your company or any companies that you are aware of, it would be great if you reach out to me on my email [shayanariyaz@gmail.com](shayanariyaz@gmail.com). You can also view my **resume** [here](https://drive.google.com/file/d/17Ks51alKPLJsk9gcRumPsWJ5LXH7_TH6/view?usp=sharing)*.
-
 
 ## About Me
-My name is Shayan Riyaz and I am a Software Engineer by profession. Currently, I am a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
-and a part of the technical content developer team at <a href="https://www.bitproject.org/" target="_blank">Bit Project</a>.
+My name is Shayan Riyaz and I am a Software Engineer by profession. Currently, I am working as an ***Associate Algorithm Engineer*** at <a href="https://www.masimo.com/" target="_blank">Masimo</a>.  I have previously worked as a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
+and as part of the technical content developer team at <a href="https://www.bitproject.org/" target="_blank">Bit Project</a>.
 
 <br>
 
-I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="https://www.bitproject.org/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics and eventually gained enough intuition to study Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose as my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in December, 2019.
+I started my Academic journey when I moved from [Karachi, Pakistan](https://www.youtube.com/watch?v=W-H5Gx4aWQk) to the United States of America. I studied Mathematics, Physics and Programming at  <a href="http://deanza.edu/" target="_blank">De Anza College</a> in Cupertino, CA. At De Anza College I started of with pure Physics and Mathematics and eventually gained enough intuition to study Robotics and Mechanics. Eventually my experience with microcontrollers and other electronic hardware drew me to Electrical Engineering, which I chose as my field of study at <a href="https://www.csulb.edu/" target="_blank"> California State Univerity, Long Beach</a> graduating with a B.S in December, 2019.
 
 <br>
 
