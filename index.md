@@ -14,7 +14,7 @@ image:
 
 
 ## About Me
-My name is Shayan Riyaz and I am an Engineer by profession with an interest in Sofware and R&D . Currently, I am working as an ***Algorithm Engineer*** at <a href="https://www.masimo.com/" target="_blank">Masimo</a>. My current work revolves around designing Algorithms for Biomedical devices using traditional Digital Signal Processing and Machine Learning methods. I have previously worked as a Software Engineering fellow at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
+My name is Shayan Riyaz and I am an Engineer by profession with an interest in Sofware and R&D . Currently, I am working as an ***Algorithm Engineer*** at <a href="https://www.masimo.com/" target="_blank">Masimo</a>. My current work revolves around designing Algorithms for Biomedical devices using traditional Digital Signal Processing and Machine Learning methods. I have previously contributed as an Open Source Developer at <a href="https://fellowship.mlh.io/" target="_blank">Major League Hacking </a> 
 and as Technical Content Developer and Project Lead at <a href="https://www.bitproject.org/" target="_blank">Bit Project</a>.
 
 <br>
