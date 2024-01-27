@@ -9,8 +9,6 @@ comments: false
 
 📷 I also take pictures in my free time, you can check it out. 
 
-If you want to support me in any way I would really appreciate it if you check out my ShutterStock page -> <a href="https://www.shutterstock.com/g/shayanriyaz"><img height="30" src="https://raw.githubusercontent.com/ShayanRiyaz/ShayanRiyaz/master/icons/shutterstock.png" width="20"></a>
-
 <br>
 <p align="center">
 <img src="https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/photographs/2020-long-beach.jpg" width="500" >
