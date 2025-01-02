@@ -10,5 +10,5 @@ comments: false
 
 
 
-You can also download my <a href="https://drive.google.com/file/d/1DjhJNLnr1QHo6fIPXCrKsqVzET1UuqcM/view?usp=sharing" target="_blank">resume in PDF</a>.
+You can also download my <a href="https://drive.google.com/file/d/1-VFCCegccr3VXlo29Xihi6SKOnfnoYKS/view?usp=sharing" target="_blank">resume in PDF</a>.
 
