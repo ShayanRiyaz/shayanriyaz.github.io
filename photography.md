@@ -7,8 +7,6 @@ modified: 10-28-2020
 comments: false
 ---
 
-📷 I also take pictures in my free time, you can check it out. 
-
 <br>
 <p align="center">
 <img src="https://raw.githubusercontent.com/ShayanRiyaz/shayanriyaz.github.io/master/images/photographs/2020-long-beach.jpg" width="500" >
