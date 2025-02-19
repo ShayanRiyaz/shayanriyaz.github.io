@@ -13,5 +13,5 @@ comments: false
 A perspective on Signal Processing and Aritifical Intelligence..
 
 Sources:
-  * <a href="https://futureofsp.eecs.mit.edu/article/" alt = "MIT Signal Processing article" </a>
-  * <a href="https://setr.stanford.edu/technology/artificial-intelligence/2025" alt="Stanford AI review" </a>
+  * <a href="https://futureofsp.eecs.mit.edu/article/" > MIT Signal Processing article</a>
+  * <a href="https://setr.stanford.edu/technology/artificial-intelligence/2025">Stanford AI review </a>
