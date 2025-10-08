@@ -8,7 +8,8 @@ comments: false
 ---
 
 
+<embed src="ShayanRiyaz_Resume_October_2025.pdf" type="application/pdf" width="100%" height="800px" />
 
+<!-- You can also download my <a href="/path/to/your/resume.pdf" target="_blank">resume in PDF</a>. -->
 
-You can also download my <a href="https://drive.google.com/file/d/1-VFCCegccr3VXlo29Xihi6SKOnfnoYKS/view?usp=sharing" target="_blank">resume in PDF</a>.
 

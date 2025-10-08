@@ -3,17 +3,16 @@ layout: page
 permalink: /code/
 title: Some Code/Projects I've Written
 tags: [code]
-modified: 3-10-2014
+modified: 10-07-2025
 comments: false
 ---
 
-
-I grew up being fascinated by the technology around me. After I got my first Arduino, I would spend hours trying to understand C. I had alot of fun doing that and decided that Engineering/Software is where I want to be.
-
-### Personal Projects (Recent)
+### Projects (Recent)
 * [Deep Learning Tumor Detection & Segmentation](https://github.com/ShayanRiyaz/Causal-MRI-Tumor-Detect)
-In Progress (I found an online MRI Detection & Segmentation detection project through manning, I am writing my own version of it by writing custom transformers and integrating variational auto encoders to implement causal analysis.)
+*[In Progress]* (I found  project through manning, I am writing an online MRI Detection & Segmentation detection. Writing writing custom transformers and integrating variational auto encoders to implement causal analysis.)
 
+* [Clinical Annotator](https://github.com/ShayanRiyaz/CardioAnnotator)
+*[In Progress]* A specialized annotation tool for clinical cardiovascular data, designed to streamline the labeling process for medical time-series signals and imaging data. Features custom visualization pipelines for multi-modal cardiac measurements and supports collaborative annotation workflows for building high-quality training datasets in cardiovascular AI applications.
 
 ### Workshops
 * [Introduction to Data Science](https://colab.research.google.com/github/ShayanRiyaz/My-Technical-Workshops/blob/master/Introductory-Data-Science-Workshop/BitUniversity-Workshop.ipynb) <br>
