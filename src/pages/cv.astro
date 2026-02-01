@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="My CV">
+  <div class="w-full">
+    <object
+      data="/ShayanRiyaz_Resume_October_2025.pdf"
+      type="application/pdf"
+      width="100%"
+      height="800px"
+      class="border border-gray-300 rounded"
+    >
+      <p class="text-center py-8">
+        Your browser doesn't support embedded PDFs.
+        <a href="/ShayanRiyaz_Resume_October_2025.pdf" target="_blank" class="text-primary underline">
+          Download the PDF
+        </a>
+      </p>
+    </object>
+  </div>
+</PageLayout>

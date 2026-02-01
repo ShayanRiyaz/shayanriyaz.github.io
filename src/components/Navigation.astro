@@ -1,0 +1,52 @@
+---
+import { site } from '../data/site';
+import { navigation } from '../data/navigation';
+---
+
+<div class="navigation-wrapper bg-white border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-center">
+    <div class="site-name">
+      <a href="/" class="text-2xl font-heading font-bold text-primary hover:text-gray-600 transition-colors">
+        {site.title}
+      </a>
+    </div>
+
+    <nav id="site-nav" class="mt-4 md:mt-0">
+      <button
+        type="button"
+        id="menutoggle"
+        class="md:hidden flex items-center px-3 py-2 border border-gray-400 rounded hover:bg-gray-100 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z" clip-rule="evenodd"/>
+        </svg>
+        <span class="ml-2">Menu</span>
+      </button>
+
+      <ul id="nav-menu" class="hidden md:flex md:space-x-6 mt-4 md:mt-0 flex-col md:flex-row">
+        {navigation.map(link => (
+          <li>
+            <a
+              href={link.url}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              class="block py-2 md:py-0 text-primary hover:text-gray-600 font-heading transition-colors"
+            >
+              {link.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('menutoggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

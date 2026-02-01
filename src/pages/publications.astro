@@ -1,0 +1,90 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { publications } from '../data/publications';
+
+const conferencePublications = publications.filter(p => p.type === 'conference');
+const journalPublications = publications.filter(p => p.type !== 'conference');
+---
+
+<PageLayout title="My Publications">
+  {conferencePublications.length > 0 && (
+    <>
+      <h2 class="text-xl font-heading font-bold mb-6 pt-4">Conference Presentations</h2>
+      <ul class="space-y-6 mb-10">
+        {conferencePublications.map(pub => (
+          <li class="border-b border-gray-200 pb-6">
+            <p class="mb-2">
+              {pub.authors}
+              <br />
+              <strong>{pub.title}</strong>
+              <br />
+              <em>{pub.journal}</em>, {pub.location}, {pub.date}.
+              <span class="text-gray-600"> [Poster presentation]</span>
+            </p>
+
+            <div class="flex gap-4 text-sm">
+              <button
+                class="bibtex-toggle text-primary hover:underline cursor-pointer"
+                data-target={`bib_${pub.id}`}
+              >
+                [BibTeX]
+              </button>
+              {pub.pdfUrl && (
+                <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                  [PDF]
+                </a>
+              )}
+            </div>
+
+            <div id={`bib_${pub.id}`} class="bibtex-content hidden mt-4 bg-amber-50 border border-gray-300 p-4 rounded">
+              <pre class="text-sm overflow-x-auto whitespace-pre-wrap font-mono">{pub.bibtex}</pre>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  <h2 class="text-xl font-heading font-bold mb-6 pt-4">Journal Publications</h2>
+  <ul class="space-y-6">
+    {journalPublications.map(pub => (
+      <li class="border-b border-gray-200 pb-6">
+        <p class="mb-2">
+          {pub.authors}
+          <br />
+          <strong>{pub.title}</strong>
+          <br />
+          <em>{pub.journal}</em>, {pub.year}.
+        </p>
+
+        <div class="flex gap-4 text-sm">
+          <button
+            class="bibtex-toggle text-primary hover:underline cursor-pointer"
+            data-target={`bib_${pub.id}`}
+          >
+            [BibTeX]
+          </button>
+          {pub.pdfUrl && (
+            <a href={pub.pdfUrl} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+              [PDF]
+            </a>
+          )}
+        </div>
+
+        <div id={`bib_${pub.id}`} class="bibtex-content hidden mt-4 bg-amber-50 border border-gray-300 p-4 rounded">
+          <pre class="text-sm overflow-x-auto whitespace-pre-wrap font-mono">{pub.bibtex}</pre>
+        </div>
+      </li>
+    ))}
+  </ul>
+</PageLayout>
+
+<script>
+  document.querySelectorAll('.bibtex-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-target');
+      const target = document.getElementById(targetId!);
+      target?.classList.toggle('hidden');
+    });
+  });
+</script>
