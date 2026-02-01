@@ -1,0 +1,32 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AuthorBio from '../components/AuthorBio.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: {
+    feature?: string;
+    credit?: string;
+    creditlink?: string;
+  };
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image}>
+  <div class="flex flex-col md:flex-row gap-8">
+    <aside class="md:w-64 flex-shrink-0">
+      <div class="md:sticky md:top-8">
+        <AuthorBio />
+      </div>
+    </aside>
+    <article class="flex-1 min-w-0">
+      <h1 class="text-3xl font-heading font-bold mb-6 text-primary">{title}</h1>
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

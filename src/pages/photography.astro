@@ -1,0 +1,42 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const photos = [
+  { src: '/images/photographs/2020-long-beach.jpg', caption: 'Long Beach, California - 2020' },
+  { src: '/images/photographs/2019-chicago.jpg', caption: 'Downtown Chicago, Illinois - 2019' },
+  { src: '/images/photographs/2018-nanga-parbat.png', caption: 'Nanga Parbat, Pakistan - 2018' },
+  { src: '/images/photographs/2018-lake-franklin.jpg', caption: 'Lake Franklin, California - 2018' },
+  { src: '/images/photographs/2018-fairy-meadows.png', caption: 'Fairy Meadows, Pakistan - 2018' },
+  { src: '/images/photographs/2018-San-diego.png', caption: 'San Diego, California - 2018' },
+  { src: '/images/photographs/2017-kashmir.jpg', caption: 'Azad Jammu Kashmir, Pakistan - 2017' },
+  { src: '/images/photographs/2017-islamabad.png', caption: 'Islamabad, Pakistan - 2017' },
+  { src: '/images/photographs/2017-Nathia-Gali.png', caption: 'Nathia Gali, Pakistan 2017' }
+];
+---
+
+<PageLayout title="Photography">
+  <div class="space-y-8">
+    {photos.map(photo => (
+      <figure class="text-center">
+        <a href={photo.src} class="lightbox-image block" target="_blank">
+          <img
+            src={photo.src}
+            alt={photo.caption}
+            class="max-w-lg mx-auto rounded shadow-lg hover:shadow-xl transition-shadow cursor-zoom-in"
+            loading="lazy"
+          />
+        </a>
+        <figcaption class="mt-2 text-gray-600 italic">{photo.caption}</figcaption>
+      </figure>
+    ))}
+  </div>
+</PageLayout>
+
+<style>
+  .lightbox-image img {
+    transition: transform 0.3s ease;
+  }
+  .lightbox-image:hover img {
+    transform: scale(1.02);
+  }
+</style>

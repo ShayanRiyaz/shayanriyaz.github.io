@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const postsByYear = posts.reduce((acc, post) => {
+  const year = post.data.pubDate.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+---
+
+<BaseLayout title="All Posts" description="A List of Posts">
+  <div class="flex flex-col md:flex-row gap-8">
+    <aside class="md:w-64 flex-shrink-0">
+      <div class="md:sticky md:top-8">
+        <AuthorBio />
+      </div>
+    </aside>
+    <div class="flex-1 min-w-0">
+      <h1 class="text-3xl font-heading font-bold mb-8 text-primary">All Posts</h1>
+
+      {Object.entries(postsByYear).sort(([a], [b]) => Number(b) - Number(a)).map(([year, yearPosts]) => (
+        <section class="mb-8">
+          <h2 class="text-2xl font-heading font-bold mb-4 text-gray-700">{year}</h2>
+          {yearPosts.map(post => (
+            <article class="mb-6 pb-6 border-b border-gray-200 last:border-0">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href={`/blog/${post.slug}/`} class="text-primary hover:text-gray-600 transition-colors">
+                  {post.data.title}
+                </a>
+              </h3>
+              {post.data.description && (
+                <p class="text-gray-600">{post.data.description}</p>
+              )}
+            </article>
+          ))}
+        </section>
+      ))}
+
+      {posts.length === 0 && (
+        <p class="text-gray-600">No posts yet.</p>
+      )}
+    </div>
+  </div>
+</BaseLayout>
