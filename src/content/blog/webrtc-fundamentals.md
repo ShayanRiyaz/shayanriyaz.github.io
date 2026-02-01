@@ -25,9 +25,9 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 - A connects to B via the most optimal path.
 - A & B also exchanges their supported media and security.
 
-![How-does-WebRTC-really-work/Untitled.png](images/How-does-WebRTC-really-work/1_overview_2.png)
+![How-does-WebRTC-really-work/Untitled.png](/images/How-does-WebRTC-really-work/1_overview_2.png)
 
-![How-does-WebRTC-really-work/Untitled%201.png](images/How-does-WebRTC-really-work/1_overview.png)
+![How-does-WebRTC-really-work/Untitled%201.png](/images/How-does-WebRTC-really-work/1_overview.png)
 
 *They will connect directly along the shortest optimal path.*
 
@@ -52,7 +52,7 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 
 - **A** will select a port of its own, for example, **8080** and send a packet (get request) to **192.168.2.1:80**
 
-![A communicates with With Router](images/How-does-WebRTC-really-work/NAT-TABLES/1_A-com-B.png)
+![A communicates with With Router](/images/How-does-WebRTC-really-work/NAT-TABLES/1_A-com-B.png)
 
 - Can it actually communicated with **192.168.2.1:80?**
 - Next, **NAT** does a subnet masking. It checks if **B** is in the same subnet as **A** (On the back does an XOR)
@@ -66,21 +66,21 @@ Over the past few days, I have been studying WebRTC and how the whole mechanism 
 
 This Next becomes
 
-![Router Communicates with B](images/How-does-WebRTC-really-work/NAT-TABLES/2_rout-to-B.png)
+![Router Communicates with B](/images/How-does-WebRTC-really-work/NAT-TABLES/2_rout-to-B.png)
 
 The router selects a random port (in our case **3333**)
 
 But before it does that it creates a NAT Table.
 
-![NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/3_NAT-table.png)
+![NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/3_NAT-table.png)
 
-![B Receives from Router](images/How-does-WebRTC-really-work/NAT-TABLES/4_B-rec-router.png)
+![B Receives from Router](/images/How-does-WebRTC-really-work/NAT-TABLES/4_B-rec-router.png)
 
 - Next B will send the message back to the router
 - The router will check who is **5.5.5.5:3333**?
 - The router will look at the **NAT table** where it will find the ip address connected to **5.5.5.5:3333** (which is **A**'s address) and send the message to it.
 
-![ NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/5_NAT-table.png)
+![ NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/5_NAT-table.png)
 
 ## NAT Translation Methods
 
@@ -93,20 +93,20 @@ But before it does that it creates a NAT Table.
 
 - Packets to **External IP:port** on the router always maps to the I**nternal IP:port** without exceptions
 
-![NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/6_NAT-Table.png)
+![NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/6_NAT-Table.png)
 
 If someone **(B)** sent a packet to a router and if the router is configured to a 1 to 1 NAT it doesn't check where the packet is coming from and it will automatically forward it to the Internal IP (**A)/**
 
-![How Does Web RTC Really Work](images/How-does-WebRTC-really-work/2_one_to_one_NAT.png)
+![How Does Web RTC Really Work](/images/How-does-WebRTC-really-work/2_one_to_one_NAT.png)
 
 ### Address Restricted NAT
 
 - Packets to external IP: post on the router always maps to internal IP: port as long as source address from packed matched the table (regardless of part)
 - The communication is allowed if we have communicated with this host before
 
-![ NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/7-NAT-table.png)
+![ NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/7-NAT-table.png)
 
-![Address Restricted NAT](images/How-does-WebRTC-really-work/3_AddrRestrict_NAT.png)
+![Address Restricted NAT](/images/How-does-WebRTC-really-work/3_AddrRestrict_NAT.png)
 
 - As long as we've sent some packet before (could be any for e.g. UDP, TCP, DNS request, or TelNet Request) and it is in our NAT table.
 
@@ -115,9 +115,9 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 - Packets to external IP:port on the router always maps to the internal IP: port as long as the source address and port from packet matches table
 - Allow if there has been communication with this host:port before
 
-![NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/8-NAT-table.png)
+![NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/8-NAT-table.png)
 
-![Port Restricted NAT](images/How-does-WebRTC-really-work/4_PortRestrictedNat.png)
+![Port Restricted NAT](/images/How-does-WebRTC-really-work/4_PortRestrictedNat.png)
 
 ### Symmetric NAT (Most restricted one)
 
@@ -125,9 +125,9 @@ If someone **(B)** sent a packet to a router and if the router is configured to 
 - Packets to external IP:port on the router always map to internal IP:port as long as source address and port from packet matches the table
 - Only Allow if the full pair match
 
-![NAT Table](images/How-does-WebRTC-really-work/NAT-TABLES/9-NAT-Table.png)
+![NAT Table](/images/How-does-WebRTC-really-work/NAT-TABLES/9-NAT-Table.png)
 
-![Symmetric NAT](images/How-does-WebRTC-really-work/5_SymmetricNAT.png)
+![Symmetric NAT](/images/How-does-WebRTC-really-work/5_SymmetricNAT.png)
 
 Symmetric NAT does not work with **WebRTC.** This is because WebRTC using a **STUN** server. When we communicate with the STUN server it gives us the IP address.
 
@@ -144,7 +144,7 @@ Symmetric NAT does not work with **WebRTC.** This is because WebRTC using a **ST
 - STUN SERVER port 3478, 5439 for Transport Layer Security (TLS)
 - Cheap to Maintain (Can run on a Docker Server)
 
-![STUN](images/How-does-WebRTC-really-work/6_STUN.png)
+![STUN](/images/How-does-WebRTC-really-work/6_STUN.png)
 
 In case of Address/Port restricted Nat you have to send a packet prior to the communication to make sure that they have their addresses saved before they communicate.
 
@@ -157,7 +157,7 @@ In case of Address/Port restricted Nat you have to send a packet prior to the co
 - TURN default server port 3478,5349 for TLS
 - Expensive to maintain and run
 
-![TURN](images/How-does-WebRTC-really-work/7_TURN.png)
+![TURN](/images/How-does-WebRTC-really-work/7_TURN.png)
 
 ## ICE
 
