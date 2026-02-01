@@ -4,7 +4,7 @@ export const site = {
   url: "https://shayanriyaz.github.io",
   owner: {
     name: "Shayan Riyaz",
-    avatar: "Shayan.png",
+    avatar: "images/Shayan.png",
     bio: "Software Research and Development Engineer with half a decade of experience in the biomechanics and biomedical industry.",
     email: "shayanariyaz@gmail.com",
     twitter: "shayanriyaz",
